@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.editor.mapper.TeamMapper">
+	
+	<insert id="insert">
+		<selectKey keyProperty="seq" resultType="String" order="BEFORE">
+			select seqTeam.nextVal from dual
+		</selectKey>
+		insert into team (seq, teamName, teamEx, teamType, regdate)
+			values (#{seq}, #{teamName}, #{teamEx}, #{teamType}, default)
+	</insert>
+	
+	<select id="get" resultType="team">
+		select * from team where seq = #{seq} for update
+	</select>
+	
+	<select id="getList" resultType="team"> 
+		select * from team
+	</select>
+</mapper>

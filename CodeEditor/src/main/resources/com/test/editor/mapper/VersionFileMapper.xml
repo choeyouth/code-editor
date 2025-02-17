@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.editor.mapper.VersionFileMapper">
+	
+	<select id="getAllVersionFiles" resultMap="versionFileResultMap">
+		select * from versionFile where versionInfo_seq = #{seq}
+			start with parent_seq  is null
+			connect by prior seq = parent_seq
+			order by seq
+	</select>
+	
+	<resultMap type="com.test.editor.model.VersionFileDTO" id="versionFileResultMap">
+		<id property="seq" column="seq"/>
+		<result property="name" column="name"/>
+		<result property="code" column="code" jdbcType="BLOB" typeHandler="com.test.editor.handler.BlobToStringTypeHandler"/>
+	    <result property="versionInfoSeq" column="versionInfo_seq"/>
+	    <result property="fileTypeSeq" column="fileType_seq"/>
+	    <result property="parentSeq" column="parent_seq"/>
+	</resultMap>
+	
+	<select id="getNextSeq" resultType="Integer">
+		select seqVersionFile.nextVal from dual
+	</select>
+	
+	<insert id="insert" parameterType="versionFile">
+		insert into versionFile (seq, name, code, versionInfo_seq, fileType_seq, parent_Seq)
+			values (seqVersionFile.nextVal, #{name}, #{code, jdbcType=BLOB, typeHandler=com.test.editor.handler.BlobToStringTypeHandler}, 
+	               #{versionInfoSeq}, #{fileTypeSeq}, #{parentSeq, jdbcType=INTEGER})
+	</insert>
+	
+	<select id="get" resultMap="versionFileResultMap">
+		select * from versionFile where seq = #{seq}
+	</select>
+</mapper>

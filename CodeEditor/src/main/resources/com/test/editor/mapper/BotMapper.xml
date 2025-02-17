@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.editor.mapper.BotMapper">
+	
+	<delete id="botdel">
+		delete from chatbot where seq = #{seq}
+	</delete>
+	
+	<select id="stats" resultType="com.test.editor.model.BotStatsDTO">
+		select to_char(chatdate,'MM') as month, count(*) as count from chatbot
+		where member_seq = #{seq}
+		group by to_char(chatdate,'MM') order by month
+	</select>
+	
+	<select id="summary" resultType="com.test.editor.model.BotStatsDTO">
+		SELECT error_type, COUNT(*) AS error_count FROM chatbot_error_view
+		WHERE member_seq = #{seq} GROUP BY error_type;
+	</select>
+
+</mapper>
