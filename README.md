@@ -1,2 +1,2 @@
 # code-editor
-이 레포지토리는 개인 프로젝트로, 프로젝트의 간소화된 버전을 제공합니다. 전체 기능이 포함된 원본 레포지토리는 https://github.com/chimy/code-eidtor 에서 확인하실 수 있습니다.
+이 레포지토리는 개인 프로젝트입니다. 전체 기능이 포함된 원본 레포지토리는 https://github.com/chimy/code-eidtor 에서 확인하실 수 있습니다.
