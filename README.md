@@ -31,6 +31,8 @@ Spring MVC와 MyBatis를 기반으로 확장성과 유지보수성을 고려해 
 -   **개발 툴**: STS 3, Visual Studio Code, SQL Developer
 -   **협업 툴**: GitHub, Notion, Discord, ERD Cloud, Draw\.io, Figma, Google Drive, MiriCanvas
 
+<br> 
+
 ## 사용 기술
 
 -   **프로그래밍 언어**: Java 11, HTML, CSS, JavaScript (ES6), ANSI-SQL, PL/SQL
