@@ -24,12 +24,11 @@
 	    <result property="value" column="value"/>
 	    <result property="styleType_seq" column="styleType_seq"/>
 	    <result property="member_seq" column="member_seq"/>
-	    
-	    <!-- category 값을 styleType 필드에 매핑 -->
-	    <association property="styleType" javaType="styleType">
+	    <association property="styleType" javaType="styleType" fetchType="lazy">
 	        <result property="category" column="category"/>
 	    </association>
 	</resultMap>
+
 	
 	<select id="getFont" parameterType="String" resultMap="FontSettingResultMap">
 		select 
