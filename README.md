@@ -42,15 +42,6 @@ Spring MVC와 MyBatis를 기반으로 확장성과 유지보수성을 고려해 
     -   Monaco Editor, OpenAI API, FullCalendar Library
 -   **데이터베이스**: Oracle 11g EX
 
-<br>
-
-## 사용 기술
-
-- **Spring MVC**: MVC 구조를 기반으로 한 웹 애플리케이션 개발.
-- **MyBatis**: 데이터베이스 연동을 위한 ORM 프레임워크.
-- **WebSocket**: 실시간 양방향 통신을 통한 코드 편집 동기화.
-- **Monaco Editor**: 고성능 코드 에디터를 이용한 실시간 코드 편집 환경.
-- **AJAX**: 비동기 처리를 통해 빠른 응답 속도 제공.
 
 <br>
 
